@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://xn8wofqoe410"]
+[gd_scene load_steps=12 format=3 uid="uid://xn8wofqoe410"]
 
 [ext_resource type="Texture2D" uid="uid://d0e5muvoeynnk" path="res://Sprites/temp.png" id="1_yxm4l"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_03bim"]
 [ext_resource type="Script" path="res://Scripts/DeathZone.gd" id="3_gf05u"]
+[ext_resource type="Script" path="res://Scripts/SwitchScenes.gd" id="4_sobtt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v3lpp"]
 texture = ExtResource("1_yxm4l")
@@ -40,6 +41,9 @@ size = Vector2(640, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_46qhj"]
 size = Vector2(640, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubi8v"]
+size = Vector2(35, 31)
+
 [node name="Main" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -70,6 +74,19 @@ texture = SubResource("PlaceholderTexture2D_co5rf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zone"]
 shape = SubResource("RectangleShape2D_46qhj")
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2(0, -181)
+script = ExtResource("4_sobtt")
+next_scene = "res://Scenes/Test Level 2.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+position = Vector2(259.5, 338.5)
+shape = SubResource("RectangleShape2D_ubi8v")
+
+[node name="Goal" type="Sprite2D" parent="Goal"]
+position = Vector2(260, 338)
+texture = ExtResource("1_yxm4l")
 
 [connection signal="moved" from="Player" to="Death Zone" method="_on_player_moved"]
 [connection signal="body_entered" from="Death Zone" to="Death Zone" method="_on_body_entered"]
