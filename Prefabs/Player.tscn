@@ -13,7 +13,7 @@ height = 32
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k114r"]
 radius = 8.0
-height = 32.0
+height = 31.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(0, -16)

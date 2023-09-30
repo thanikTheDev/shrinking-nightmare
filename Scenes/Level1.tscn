@@ -62,4 +62,5 @@ shape = SubResource("RectangleShape2D_46qhj")
 position = Vector2(280, 159)
 next_level = "res://Scenes/Level2.tscn"
 
+[connection signal="moved" from="Player" to="Death Zone" method="_on_player_moved"]
 [connection signal="body_entered" from="Death Zone" to="Death Zone" method="_on_body_entered"]
