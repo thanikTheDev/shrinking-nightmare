@@ -6,6 +6,8 @@ extends Area2D
 var locked : bool = false
 
 func _ready():
+	assert(next_level)
+	
 	if key:
 		locked = true
 		key.collected.connect(_on_key_collected)
