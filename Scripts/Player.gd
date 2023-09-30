@@ -10,6 +10,8 @@ var direction : float
 signal moved()
 
 func _physics_process(delta):
+	var previous_position : Vector2 = global_position
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -20,12 +22,14 @@ func _physics_process(delta):
 
 	direction = Input.get_axis("left", "right")
 	if direction:
-		emit_signal("moved")
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = 0
 
 	move_and_slide()
+	
+	if previous_position != global_position:
+		emit_signal("moved")
 
 func game_over():
 	get_tree().reload_current_scene()

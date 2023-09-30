@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://xn8wofqoe410"]
+[gd_scene load_steps=11 format=3 uid="uid://xn8wofqoe410"]
 
 [ext_resource type="Texture2D" uid="uid://d0e5muvoeynnk" path="res://Sprites/temp.png" id="1_yxm4l"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_03bim"]
 [ext_resource type="Script" path="res://Scripts/DeathZone.gd" id="3_gf05u"]
-[ext_resource type="Script" path="res://Scripts/Door.gd" id="4_drdcq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v3lpp"]
 texture = ExtResource("1_yxm4l")
@@ -28,21 +27,24 @@ texture = ExtResource("1_yxm4l")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_v3lpp")
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tr2wo"]
-size = Vector2(16, 16)
+[sub_resource type="Gradient" id="Gradient_dwdho"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.862745, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hl0qt"]
+gradient = SubResource("Gradient_dwdho")
+width = 16
+height = 32
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k114r"]
 radius = 8.0
-height = 16.0
+height = 32.0
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_co5rf"]
 size = Vector2(640, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_46qhj"]
 size = Vector2(640, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubi8v"]
-size = Vector2(35, 31)
 
 [node name="Main" type="Node2D"]
 
@@ -55,17 +57,17 @@ layer_0/tile_data = PackedInt32Array(-720916, 1, 0, -720915, 1, 0, -720914, 1, 0
 zoom = Vector2(2, 2)
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
-position = Vector2(-281, 167)
+position = Vector2(-281, 159)
 script = ExtResource("2_03bim")
 
 [node name="Sprite" type="Sprite2D" parent="Player"]
-texture = SubResource("PlaceholderTexture2D_tr2wo")
+texture = SubResource("GradientTexture2D_hl0qt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CapsuleShape2D_k114r")
 
 [node name="Death Zone" type="Area2D" parent="."]
-position = Vector2(0, -181)
+position = Vector2(0, -179)
 script = ExtResource("3_gf05u")
 direction = Vector2(0, 1)
 
@@ -75,17 +77,5 @@ texture = SubResource("PlaceholderTexture2D_co5rf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zone"]
 shape = SubResource("RectangleShape2D_46qhj")
 
-[node name="Door" type="Area2D" parent="."]
-position = Vector2(269, 155)
-script = ExtResource("4_drdcq")
-next_level = "res://Scenes/Test Level 2.tscn"
-
-[node name="Sprite" type="Sprite2D" parent="Door"]
-texture = ExtResource("1_yxm4l")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
-shape = SubResource("RectangleShape2D_ubi8v")
-
 [connection signal="moved" from="Player" to="Death Zone" method="_on_player_moved"]
 [connection signal="body_entered" from="Death Zone" to="Death Zone" method="_on_body_entered"]
-[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]

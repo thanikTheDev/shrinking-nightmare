@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var direction : Vector2
-@export var speed : float = 1.5
+@export var speed : float = 1
 
 func _on_player_moved():
 	global_position += direction * speed
