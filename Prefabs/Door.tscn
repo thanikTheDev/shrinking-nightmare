@@ -21,7 +21,7 @@ script = ExtResource("1_nhygk")
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_im4u8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ubi8v")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
