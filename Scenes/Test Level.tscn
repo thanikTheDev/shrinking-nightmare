@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d0e5muvoeynnk" path="res://Sprites/temp.png" id="1_yxm4l"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_03bim"]
 [ext_resource type="Script" path="res://Scripts/DeathZone.gd" id="3_gf05u"]
-[ext_resource type="Script" path="res://Scripts/SwitchScenes.gd" id="4_sobtt"]
+[ext_resource type="Script" path="res://Scripts/Door.gd" id="4_drdcq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v3lpp"]
 texture = ExtResource("1_yxm4l")
@@ -75,18 +75,17 @@ texture = SubResource("PlaceholderTexture2D_co5rf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zone"]
 shape = SubResource("RectangleShape2D_46qhj")
 
-[node name="Goal" type="Area2D" parent="."]
-position = Vector2(0, -181)
-script = ExtResource("4_sobtt")
-next_scene = "res://Scenes/Test Level 2.tscn"
+[node name="Door" type="Area2D" parent="."]
+position = Vector2(269, 155)
+script = ExtResource("4_drdcq")
+next_level = "res://Scenes/Test Level 2.tscn"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
-position = Vector2(259.5, 338.5)
-shape = SubResource("RectangleShape2D_ubi8v")
-
-[node name="Goal" type="Sprite2D" parent="Goal"]
-position = Vector2(260, 338)
+[node name="Sprite" type="Sprite2D" parent="Door"]
 texture = ExtResource("1_yxm4l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+shape = SubResource("RectangleShape2D_ubi8v")
 
 [connection signal="moved" from="Player" to="Death Zone" method="_on_player_moved"]
 [connection signal="body_entered" from="Death Zone" to="Death Zone" method="_on_body_entered"]
+[connection signal="body_entered" from="Door" to="Door" method="_on_body_entered"]
