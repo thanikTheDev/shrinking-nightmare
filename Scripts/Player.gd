@@ -62,3 +62,7 @@ func _on_moved():
 
 func _on_haunter_body_entered(body):
 	pass # Replace with function body.
+
+
+func _on_chaser_body_entered(body):
+	pass # Replace with function body.
