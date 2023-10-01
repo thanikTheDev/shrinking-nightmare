@@ -1,3 +1,62 @@
-[gd_scene format=3 uid="uid://5spawojy68d3"]
+[gd_scene load_steps=9 format=3 uid="uid://5spawojy68d3"]
 
-[node name="Level10" type="Node2D"]
+[ext_resource type="TileSet" uid="uid://dewuaweyb675e" path="res://TestTileset.tres" id="1_jlmev"]
+[ext_resource type="PackedScene" uid="uid://bp5n8at565fac" path="res://Prefabs/Door.tscn" id="2_1m3rv"]
+[ext_resource type="PackedScene" uid="uid://cvnjj7ri2fh38" path="res://Prefabs/Key.tscn" id="3_h2j6f"]
+[ext_resource type="PackedScene" uid="uid://bmbvdjsjnpi6d" path="res://Prefabs/Player.tscn" id="4_6527x"]
+[ext_resource type="PackedScene" path="res://Prefabs/Chaser.tscn" id="5_qoi3q"]
+[ext_resource type="Script" path="res://Scripts/DeathZone.gd" id="6_v8hbh"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xmv6s"]
+size = Vector2(640, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sydrr"]
+size = Vector2(640, 16)
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_jlmev")
+format = 2
+layer_0/tile_data = PackedInt32Array(-655380, 4, 0, -589844, 4, 0, -524308, 4, 0, -458772, 4, 0, -393236, 4, 0, -327700, 4, 0, -262164, 4, 0, -196628, 4, 0, -131092, 4, 0, -65556, 4, 0, -20, 4, 0, 65516, 4, 0, 131052, 4, 0, 196588, 4, 0, 262124, 4, 0, 327660, 4, 0, 393196, 4, 0, 458732, 4, 0, 524268, 4, 0, 589804, 4, 0, 655340, 4, 0, 720876, 4, 0, 720877, 4, 0, 720878, 4, 0, 720879, 4, 0, 720880, 4, 0, 720881, 4, 0, 720882, 4, 0, 720883, 4, 0, 720884, 4, 0, 720885, 4, 0, 720886, 4, 0, 720887, 4, 0, 720888, 4, 0, 720889, 4, 0, 720890, 4, 0, 720891, 4, 0, 720892, 4, 0, 720893, 4, 0, 720894, 4, 0, 720895, 4, 0, 655360, 4, 0, 655361, 4, 0, 655362, 4, 0, 655363, 4, 0, 655364, 4, 0, 655365, 4, 0, 655366, 4, 0, 655367, 4, 0, 655368, 4, 0, 655369, 4, 0, 655370, 4, 0, 655371, 4, 0, 655372, 4, 0, 655373, 4, 0, 655374, 4, 0, 655375, 4, 0, 655376, 4, 0, 655377, 4, 0, 655378, 4, 0, 655379, 4, 0, 589843, 4, 0, 524307, 4, 0, 458771, 4, 0, 393235, 4, 0, 327699, 4, 0, 262163, 4, 0, 196627, 4, 0, 131091, 4, 0, 65555, 4, 0, 19, 4, 0, -65517, 4, 0, -131053, 4, 0, -196589, 4, 0, -262125, 4, 0, -327661, 4, 0, -393197, 4, 0, -458733, 4, 0, -524269, 4, 0, -589805, 4, 0, -655341, 4, 0, -720877, 4, 0, -720878, 4, 0, -720879, 4, 0, -720880, 4, 0, -720881, 4, 0, -720882, 4, 0, -720883, 4, 0, -720884, 4, 0, -720885, 4, 0, -720886, 4, 0, -720887, 4, 0, -720888, 4, 0, -720889, 4, 0, -720890, 4, 0, -720891, 4, 0, -720892, 4, 0, -720893, 4, 0, -720894, 4, 0, -720895, 4, 0, -720896, 4, 0, -655361, 4, 0, -655362, 4, 0, -655363, 4, 0, -655364, 4, 0, -655365, 4, 0, -655366, 4, 0, -655367, 4, 0, -655368, 4, 0, -655369, 4, 0, -655370, 4, 0, -655371, 4, 0, -655372, 4, 0, -655373, 4, 0, -655374, 4, 0, -655375, 4, 0, -655376, 4, 0, -655377, 4, 0, -655378, 4, 0, -655379, 4, 0, 393214, 4, 0, 393215, 4, 0, 327681, 4, 0, 327680, 4, 0, 327682, 4, 0, 524282, 4, 0, 524283, 4, 0, 524284, 4, 0, 458757, 4, 0, 458758, 4, 0, 458759, 4, 0, 327691, 4, 0, 327692, 4, 0, 327693, 4, 0)
+
+[node name="Door" parent="." node_paths=PackedStringArray("key") instance=ExtResource("2_1m3rv")]
+position = Vector2(293, 139)
+next_level = "res://Scenes/Level11.tscn"
+key = NodePath("../Key")
+
+[node name="Key" parent="." instance=ExtResource("3_h2j6f")]
+position = Vector2(8, 72)
+
+[node name="Player" parent="." instance=ExtResource("4_6527x")]
+position = Vector2(-292, 138)
+
+[node name="Chaser" parent="." instance=ExtResource("5_qoi3q")]
+position = Vector2(-296, 50)
+speed = 1.6
+
+[node name="Death Zone" type="Area2D" parent="."]
+position = Vector2(0, -154)
+script = ExtResource("6_v8hbh")
+direction = Vector2(0, 1)
+speed = 0.6
+
+[node name="Sprite" type="Sprite2D" parent="Death Zone"]
+texture = SubResource("PlaceholderTexture2D_xmv6s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zone"]
+shape = SubResource("RectangleShape2D_sydrr")
+
+[node name="Chaser2" parent="." instance=ExtResource("5_qoi3q")]
+position = Vector2(239, 46)
+speed = 1.4
+
+[connection signal="moved" from="Player" to="Chaser" method="_on_player_moved"]
+[connection signal="moved" from="Player" to="Death Zone" method="_on_player_moved"]
+[connection signal="moved" from="Player" to="Chaser2" method="_on_player_moved"]
+[connection signal="body_entered" from="Chaser" to="Chaser" method="_on_body_entered"]
+[connection signal="body_entered" from="Death Zone" to="Death Zone" method="_on_body_entered"]
+[connection signal="body_entered" from="Chaser2" to="Chaser2" method="_on_body_entered"]
