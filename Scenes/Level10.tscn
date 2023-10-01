@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://5spawojy68d3"]
+[gd_scene load_steps=9 format=3 uid="uid://clqv72d5f3s4v"]
 
 [ext_resource type="TileSet" uid="uid://dewuaweyb675e" path="res://TestTileset.tres" id="1_jlmev"]
 [ext_resource type="PackedScene" uid="uid://bp5n8at565fac" path="res://Prefabs/Door.tscn" id="2_1m3rv"]
 [ext_resource type="PackedScene" uid="uid://cvnjj7ri2fh38" path="res://Prefabs/Key.tscn" id="3_h2j6f"]
 [ext_resource type="PackedScene" uid="uid://bmbvdjsjnpi6d" path="res://Prefabs/Player.tscn" id="4_6527x"]
-[ext_resource type="PackedScene" path="res://Prefabs/Chaser.tscn" id="5_qoi3q"]
+[ext_resource type="PackedScene" uid="uid://vi42b4nbflta" path="res://Prefabs/Chaser.tscn" id="5_qoi3q"]
 [ext_resource type="Script" path="res://Scripts/DeathZone.gd" id="6_v8hbh"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xmv6s"]

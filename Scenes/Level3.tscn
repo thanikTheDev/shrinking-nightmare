@@ -45,6 +45,5 @@ texture = SubResource("PlaceholderTexture2D_q2u3u")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zone"]
 shape = SubResource("RectangleShape2D_pvnd6")
 
-[connection signal="moved" from="Player" to="Player" method="_on_moved"]
 [connection signal="moved" from="Player" to="Death Zone" method="_on_player_moved"]
 [connection signal="body_entered" from="Death Zone" to="Death Zone" method="_on_body_entered"]

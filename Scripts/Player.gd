@@ -12,7 +12,7 @@ var crouched : bool = false
 var direction : float
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("restart"):
 		game_over()
 
