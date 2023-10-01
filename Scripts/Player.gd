@@ -54,3 +54,11 @@ func is_under_object():
 	var query = PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2.UP)
 	query.exclude = [self]
 	return space_state.intersect_ray(query)
+
+
+func _on_moved():
+	pass # Replace with function body.
+
+
+func _on_haunter_body_entered(body):
+	pass # Replace with function body.
