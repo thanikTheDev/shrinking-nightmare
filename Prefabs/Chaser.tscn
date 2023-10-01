@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://vi42b4nbflta"]
+
+[ext_resource type="Script" path="res://Scripts/Chaser.gd" id="1_kjdr8"]
+
+[sub_resource type="Gradient" id="Gradient_6rct3"]
+offsets = PackedFloat32Array(0.993548)
+colors = PackedColorArray(0.176471, 1, 0.698039, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dqvgg"]
+gradient = SubResource("Gradient_6rct3")
+width = 16
+height = 16
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j66ec"]
+radius = 8.0
+
+[node name="Chaser" type="Area2D"]
+script = ExtResource("1_kjdr8")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_dqvgg")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_j66ec")
