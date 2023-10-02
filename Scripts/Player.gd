@@ -33,9 +33,9 @@ func _physics_process(delta):
 		_update_vertical_velocity(delta)
 	else:
 		_update_grounded_logic()
-	
+		
 	_update_horizontal_velocity()
-
+	
 	move_and_slide()
 	_update_animation_parameters()
 	
