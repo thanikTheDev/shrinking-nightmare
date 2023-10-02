@@ -35,7 +35,7 @@ speed = 3.0
 direction = Vector2(500, 0)
 
 [node name="Player" parent="." instance=ExtResource("6_0df2s")]
-position = Vector2(-496, -164)
+position = Vector2(-551, 245)
 up_direction = Vector2(0, 1)
 
 [node name="Death Zone" parent="." instance=ExtResource("6_5m2uy")]
