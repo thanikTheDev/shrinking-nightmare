@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://vi42b4nbflta"]
 
 [ext_resource type="Script" path="res://Scripts/Chaser.gd" id="1_kjdr8"]
-[ext_resource type="Texture2D" uid="uid://b5uiokylpv7fs" path="res://Sprites/Chaser.png" id="2_08tgo"]
+[ext_resource type="Texture2D" uid="uid://ccyurt7g1ao7g" path="res://Sprites/Chaser.png" id="2_08tgo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j66ec"]
 radius = 32.0
@@ -49,7 +49,6 @@ script = ExtResource("1_kjdr8")
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = ExtResource("2_08tgo")
-hframes = 2
 vframes = 2
 
 [node name="Collider" type="CollisionShape2D" parent="."]
