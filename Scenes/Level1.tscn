@@ -174,7 +174,7 @@ layer_0/tile_data = PackedInt32Array(-720916, 196608, 0, -720915, 262144, 0, -72
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_d7amt")]
-position = Vector2(-276, 144)
+position = Vector2(-470, 288)
 
 [node name="Death Zone" type="Area2D" parent="."]
 position = Vector2(0, -179)

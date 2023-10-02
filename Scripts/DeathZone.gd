@@ -8,4 +8,4 @@ func _on_player_moved():
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
-		body.game_over()
+		body.kill()

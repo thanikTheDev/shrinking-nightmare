@@ -8,6 +8,7 @@ const FALL_MULTIPLIER = 1.2
 const SPEED = 150.0
 
 @onready var animation_tree : AnimationTree = $AnimationTree
+@onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var collider : CollisionShape2D = $Collider
 @onready var sprite : Sprite2D = $Sprite
 
@@ -17,9 +18,12 @@ var current_speed : float
 var direction : float
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _ready():
+	set_physics_process(false)
+
 func _process(_delta):
 	if Input.is_action_just_pressed("restart"):
-		game_over()
+		kill()
 
 func _physics_process(delta):
 	var previous_position : Vector2 = global_position
@@ -88,5 +92,9 @@ func _is_under_object():
 	query.exclude = [self]
 	return space_state.intersect_ray(query)
 
-func game_over():
+func _game_over():
 	get_tree().reload_current_scene()
+
+func kill():
+	animation_tree.active = false
+	animation_player.play("death")
