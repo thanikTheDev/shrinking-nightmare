@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bsvrds08fnnw7"]
 
-[ext_resource type="TileSet" uid="uid://cqelttbax122s" path="res://SNTileset.tres" id="2_da7ir"]
+[ext_resource type="TileSet" uid="uid://diflj6wibjoug" path="res://SNTileset.tres" id="2_da7ir"]
 [ext_resource type="PackedScene" uid="uid://bmbvdjsjnpi6d" path="res://Prefabs/Player.tscn" id="2_uhyrw"]
 [ext_resource type="PackedScene" uid="uid://bp5n8at565fac" path="res://Prefabs/Door.tscn" id="3_bnmk1"]
 [ext_resource type="PackedScene" uid="uid://cvnjj7ri2fh38" path="res://Prefabs/Key.tscn" id="4_sntej"]

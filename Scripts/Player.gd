@@ -98,3 +98,7 @@ func _game_over():
 func kill():
 	animation_tree.active = false
 	animation_player.play("death")
+
+
+func _on_moved():
+	pass # Replace with function body.

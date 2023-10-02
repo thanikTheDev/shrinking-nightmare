@@ -1,31 +1,24 @@
-[gd_scene load_steps=10 format=3 uid="uid://peb3oyjbylyq"]
+[gd_scene load_steps=8 format=3 uid="uid://peb3oyjbylyq"]
 
 [ext_resource type="TileSet" uid="uid://diflj6wibjoug" path="res://SNTileset.tres" id="1_g7pb2"]
 [ext_resource type="PackedScene" uid="uid://bp5n8at565fac" path="res://Prefabs/Door.tscn" id="2_wxlnu"]
 [ext_resource type="PackedScene" uid="uid://cvnjj7ri2fh38" path="res://Prefabs/Key.tscn" id="3_3qeyg"]
 [ext_resource type="PackedScene" uid="uid://bmbvdjsjnpi6d" path="res://Prefabs/Player.tscn" id="4_itn3p"]
 [ext_resource type="PackedScene" uid="uid://do5trccxh5qo8" path="res://Prefabs/Haunter.tscn" id="5_0ep0e"]
-[ext_resource type="Script" path="res://Scripts/DeathZone.gd" id="6_nsv0p"]
+[ext_resource type="PackedScene" uid="uid://di2f81hr75u5f" path="res://Prefabs/DeathZone.tscn" id="7_4rfct"]
 [ext_resource type="PackedScene" uid="uid://si4gc6juxl4u" path="res://Prefabs/Spooker.tscn" id="7_esatd"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f8761"]
-size = Vector2(640, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_spjd8"]
-size = Vector2(640, 16)
 
 [node name="Level6" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_g7pb2")
 format = 2
-layer_0/tile_data = PackedInt32Array(-655380, 4, 0, -589844, 4, 0, -524308, 4, 0, -458772, 4, 0, -393236, 4, 0, -327700, 4, 0, -262164, 4, 0, -196628, 4, 0, -131092, 4, 0, -65556, 4, 0, -20, 4, 0, 65516, 4, 0, 131052, 4, 0, 196588, 4, 0, 262124, 4, 0, 327660, 4, 0, 393196, 4, 0, 458732, 4, 0, 524268, 4, 0, 589804, 4, 0, 655340, 4, 0, 720876, 4, 0, 720877, 4, 0, 720878, 4, 0, 720879, 4, 0, 720880, 4, 0, 720881, 4, 0, 720882, 4, 0, 720883, 4, 0, 720884, 4, 0, 720885, 4, 0, 720886, 4, 0, 720887, 4, 0, 720888, 4, 0, 720889, 4, 0, 720890, 4, 0, 720891, 4, 0, 720892, 4, 0, 720893, 4, 0, 720894, 4, 0, 720895, 4, 0, 655360, 4, 0, 655361, 4, 0, 655362, 4, 0, 655363, 4, 0, 655364, 4, 0, 655365, 4, 0, 655366, 4, 0, 655367, 4, 0, 655368, 4, 0, 655369, 4, 0, 655370, 4, 0, 655371, 4, 0, 655372, 4, 0, 655373, 4, 0, 655374, 4, 0, 655375, 4, 0, 655376, 4, 0, 655377, 4, 0, 655378, 4, 0, 655379, 4, 0, -720877, 4, 0, -655341, 4, 0, -589805, 4, 0, -524269, 4, 0, -458733, 4, 0, -393197, 4, 0, -327661, 4, 0, -262125, 4, 0, -196589, 4, 0, -131053, 4, 0, -65517, 4, 0, 19, 4, 0, 65555, 4, 0, 131091, 4, 0, 196627, 4, 0, 262163, 4, 0, 327699, 4, 0, 393235, 4, 0, 458771, 4, 0, 524307, 4, 0, 589843, 4, 0, -720878, 4, 0, -720879, 4, 0, -720880, 4, 0, -720881, 4, 0, -720882, 4, 0, -720883, 4, 0, -720884, 4, 0, -720885, 4, 0, -720886, 4, 0, -720887, 4, 0, -720888, 4, 0, -720889, 4, 0, -720890, 4, 0, -720891, 4, 0, -720892, 4, 0, -720893, 4, 0, -720894, 4, 0, -720895, 4, 0, -720896, 4, 0, -655361, 4, 0, -655362, 4, 0, -655363, 4, 0, -655364, 4, 0, -655365, 4, 0, -655366, 4, 0, -655367, 4, 0, -655368, 4, 0, -655369, 4, 0, -655370, 4, 0, -655371, 4, 0, -655372, 4, 0, -655373, 4, 0, -655374, 4, 0, -655375, 4, 0, -655376, 4, 0, -655377, 4, 0, -655378, 4, 0, -655379, 4, 0, 458749, 4, 0, 458750, 4, 0, 458751, 4, 0, 393216, 4, 0, 393217, 4, 0, 524302, 4, 0, 524303, 4, 0, 524304, 4, 0, 458766, 4, 0, 393230, 4, 0, 393231, 4, 0, 393232, 4, 0, 393233, 4, 0, 393234, 4, 0, 458768, 4, 0, 458767, 4, 0, 589831, 4, 0, 524295, 4, 0, 458759, 4, 0, 393223, 4, 0, 327687, 4, 0)
+layer_0/tile_data = PackedInt32Array(-655380, 262144, 1, -589844, 262144, 1, -524308, 262144, 1, -458772, 262144, 1, -393236, 262144, 1, -327700, 262144, 1, -262164, 262144, 1, -196628, 262144, 1, -131092, 262144, 1, -65556, 262144, 1, -20, 262144, 1, 65516, 262144, 1, 131052, 262144, 1, 196588, 262144, 1, 262124, 262144, 1, 327660, 262144, 1, 393196, 262144, 1, 458732, 262144, 1, 524268, 262144, 1, 589804, 262144, 1, 655340, 262144, 1, 720876, 262144, 1, 720877, 262144, 1, 720878, 262144, 1, 720879, 262144, 1, 720880, 262144, 1, 720881, 262144, 1, 720882, 262144, 1, 720883, 262144, 1, 720884, 262144, 1, 720885, 262144, 1, 720886, 262144, 1, 720887, 262144, 1, 720888, 262144, 1, 720889, 262144, 1, 720890, 262144, 1, 720891, 262144, 1, 720892, 262144, 1, 720893, 262144, 1, 720894, 262144, 1, 720895, 262144, 1, 655360, 262144, 1, 655361, 262144, 1, 655362, 262144, 1, 655363, 262144, 1, 655364, 262144, 1, 655365, 262144, 1, 655366, 262144, 1, 655367, 262144, 1, 655368, 262144, 1, 655369, 262144, 1, 655370, 262144, 1, 655371, 262144, 1, 655372, 262144, 1, 655373, 262144, 1, 655374, 262144, 1, 655375, 262144, 1, 655376, 262144, 1, 655377, 262144, 1, 655378, 262144, 1, 655379, 262144, 1, -720877, 262144, 1, -655341, 262144, 1, -589805, 262144, 1, -524269, 262144, 1, -458733, 262144, 1, -393197, 262144, 1, -327661, 262144, 1, -262125, 262144, 1, -196589, 262144, 1, -131053, 262144, 1, -65517, 262144, 1, 19, 262144, 1, 65555, 262144, 1, 131091, 262144, 1, 196627, 262144, 1, 262163, 262144, 1, 327699, 262144, 1, 393235, 262144, 1, 458771, 262144, 1, 524307, 262144, 1, 589843, 262144, 1, -720878, 262144, 1, -720879, 262144, 1, -720880, 262144, 1, -720881, 262144, 1, -720882, 262144, 1, -720883, 262144, 1, -720884, 262144, 1, -720885, 262144, 1, -720886, 262144, 1, -720887, 262144, 1, -720888, 262144, 1, -720889, 262144, 1, -720890, 262144, 1, -720891, 262144, 1, -720892, 262144, 1, -720893, 262144, 1, -720894, 262144, 1, -720895, 262144, 1, -720896, 262144, 1, -655361, 262144, 1, -655362, 262144, 1, -655363, 262144, 1, -655364, 262144, 1, -655365, 262144, 1, -655366, 262144, 1, -655367, 262144, 1, -655368, 262144, 1, -655369, 262144, 1, -655370, 262144, 1, -655371, 262144, 1, -655372, 262144, 1, -655373, 262144, 1, -655374, 262144, 1, -655375, 262144, 1, -655376, 262144, 1, -655377, 262144, 1, -655378, 262144, 1, -655379, 262144, 1, 458749, 655360, 0, 458750, 655360, 0, 458751, 655360, 0, 393216, 655360, 0, 393217, 655360, 0, 458766, 196608, 2, 393230, 196608, 0, 393231, 262144, 1, 393232, 262144, 1, 458768, 327680, 2, 458767, 262144, 1, 589831, 524288, 2, 524295, 458752, 0, 458759, 589824, 1, 393223, 458752, 0, 327687, 393216, 0, 327696, 262144, 1, 262160, 196608, 0, 262161, 262144, 1, 262162, 262144, 1, 327698, 262144, 1, 327697, 262144, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
 
 [node name="Door" parent="." node_paths=PackedStringArray("key") instance=ExtResource("2_wxlnu")]
-position = Vector2(290, 140)
+position = Vector2(574, 256)
 next_level = "res://Scenes/Level7.tscn"
 key = NodePath("../Key")
 
@@ -33,33 +26,24 @@ key = NodePath("../Key")
 position = Vector2(-6, 82)
 
 [node name="Player" parent="." instance=ExtResource("4_itn3p")]
-position = Vector2(-288, 138)
+position = Vector2(-544, 247)
 
 [node name="Haunter" parent="." instance=ExtResource("5_0ep0e")]
-position = Vector2(208, 139)
+position = Vector2(177, 288)
 speed = 2.0
 direction = Vector2(-1, 0)
 
-[node name="Death Zone" type="Area2D" parent="."]
-position = Vector2(0, -154)
-script = ExtResource("6_nsv0p")
-direction = Vector2(0, 1)
-speed = 0.6
-
-[node name="Sprite" type="Sprite2D" parent="Death Zone"]
-texture = SubResource("PlaceholderTexture2D_f8761")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zone"]
-shape = SubResource("RectangleShape2D_spjd8")
-
 [node name="Spooker" parent="." instance=ExtResource("7_esatd")]
-position = Vector2(159, 150)
+position = Vector2(275, 285)
 speed = 2.0
-direction = Vector2(100, 0)
+direction = Vector2(350, 0)
+
+[node name="Death Zone" parent="." instance=ExtResource("7_4rfct")]
+position = Vector2(0, -352)
 
 [connection signal="moved" from="Player" to="Haunter" method="_on_player_moved"]
-[connection signal="moved" from="Player" to="Death Zone" method="_on_player_moved"]
 [connection signal="moved" from="Player" to="Spooker" method="_on_player_moved"]
+[connection signal="moved" from="Player" to="Death Zone" method="_on_player_moved"]
 [connection signal="body_entered" from="Haunter" to="Haunter" method="_on_body_entered"]
-[connection signal="body_entered" from="Death Zone" to="Death Zone" method="_on_body_entered"]
 [connection signal="body_entered" from="Spooker" to="Spooker" method="_on_body_entered"]
+[connection signal="body_entered" from="Death Zone" to="Death Zone" method="_on_body_entered"]
