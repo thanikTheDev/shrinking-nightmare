@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://b08ywerf6dcdf"]
 
-[ext_resource type="TileSet" uid="uid://diflj6wibjoug" path="res://SNTileset.tres" id="1_uw8e8"]
+[ext_resource type="TileSet" uid="uid://cqelttbax122s" path="res://SNTileset.tres" id="1_uw8e8"]
 [ext_resource type="PackedScene" uid="uid://bmbvdjsjnpi6d" path="res://Prefabs/Player.tscn" id="2_7wqtr"]
 [ext_resource type="PackedScene" uid="uid://bp5n8at565fac" path="res://Prefabs/Door.tscn" id="3_iiesw"]
 [ext_resource type="PackedScene" uid="uid://cvnjj7ri2fh38" path="res://Prefabs/Key.tscn" id="4_qxqyr"]
-[ext_resource type="PackedScene" uid="uid://di2f81hr75u5f" path="res://Prefabs/DeathZone.tscn" id="5_nlqnb"]
+[ext_resource type="PackedScene" path="res://Prefabs/DeathZone.tscn" id="5_nlqnb"]
 [ext_resource type="PackedScene" uid="uid://do5trccxh5qo8" path="res://Prefabs/Haunter.tscn" id="6_11mov"]
-[ext_resource type="PackedScene" uid="uid://dlott36c13c1y" path="res://Prefabs/UI.tscn" id="7_jri0a"]
+[ext_resource type="PackedScene" path="res://Prefabs/UI.tscn" id="7_jri0a"]
 
 [node name="Main2" type="Node2D"]
 
