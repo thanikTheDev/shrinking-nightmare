@@ -1,12 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://xn8wofqoe410"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://diflj6wibjoug"]
 
-[ext_resource type="Texture2D" uid="uid://furi3rtatutr" path="res://Sprites/Walls.png" id="1_3tkrt"]
-[ext_resource type="PackedScene" uid="uid://bmbvdjsjnpi6d" path="res://Prefabs/Player.tscn" id="2_d7amt"]
-[ext_resource type="Script" path="res://Scripts/DeathZone.gd" id="3_c3fab"]
-[ext_resource type="PackedScene" uid="uid://bp5n8at565fac" path="res://Prefabs/Door.tscn" id="4_pxbon"]
+[ext_resource type="Texture2D" uid="uid://furi3rtatutr" path="res://Sprites/Walls.png" id="1_q5hvb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s4soq"]
-texture = ExtResource("1_3tkrt")
+texture = ExtResource("1_q5hvb")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -153,43 +150,7 @@ texture_region_size = Vector2i(32, 32)
 12:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 12:2/0/physics_layer_0/angular_velocity = 0.0
 
-[sub_resource type="TileSet" id="TileSet_yjmuw"]
+[resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_s4soq")
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_co5rf"]
-size = Vector2(640, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_46qhj"]
-size = Vector2(640, 16)
-
-[node name="Main" type="Node2D"]
-
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_yjmuw")
-format = 2
-layer_0/tile_data = PackedInt32Array(-720916, 196608, 0, -720915, 262144, 0, -720914, 262144, 0, -720913, 262144, 0, -720912, 262144, 0, -720911, 262144, 0, -720910, 262144, 0, -720909, 262144, 0, -720908, 262144, 0, -720907, 262144, 0, -720906, 262144, 0, -720905, 262144, 0, -720904, 262144, 0, -720903, 262144, 0, -720902, 262144, 0, -720901, 262144, 0, -720900, 262144, 0, -720899, 262144, 0, -720898, 262144, 0, -720897, 262144, 0, -786432, 262144, 0, -786431, 262144, 0, -786430, 262144, 0, -786429, 262144, 0, -786428, 262144, 0, -786427, 262144, 0, -786426, 262144, 0, -786425, 262144, 0, -786424, 262144, 0, -786423, 262144, 0, -786422, 262144, 0, -786421, 262144, 0, -786420, 262144, 0, -786419, 262144, 0, -786418, 262144, 0, -786417, 262144, 0, -786416, 262144, 0, -786415, 262144, 0, -786414, 262144, 0, -786413, 327680, 0, -720877, 327680, 1, -655341, 327680, 1, -589805, 327680, 1, -524269, 327680, 1, -458733, 327680, 1, -393197, 327680, 1, -327661, 327680, 1, -262125, 327680, 1, -196589, 327680, 1, -131053, 327680, 1, -65517, 327680, 1, 19, 327680, 1, 65555, 327680, 1, 131091, 327680, 1, 196627, 327680, 1, 262163, 327680, 1, 327699, 327680, 1, 393235, 327680, 1, 458771, 327680, 1, 524307, 327680, 1, 589843, 327680, 1, 655379, 327680, 1, 720915, 327680, 2, 720914, 262144, 2, 720913, 262144, 2, 720912, 262144, 2, 720911, 262144, 2, 720910, 262144, 2, 720909, 262144, 2, 720908, 262144, 2, 720907, 262144, 2, 720906, 262144, 2, 720905, 262144, 2, 720904, 262144, 2, 720903, 262144, 2, 720902, 262144, 2, 720901, 262144, 2, 720900, 262144, 2, 720899, 262144, 2, 720898, 262144, 2, 720897, 262144, 2, 720896, 262144, 2, 786431, 262144, 2, 786430, 262144, 2, 786429, 262144, 2, 786428, 262144, 2, 786427, 262144, 2, 786426, 262144, 2, 786425, 262144, 2, 786424, 262144, 2, 786423, 262144, 2, 786422, 262144, 2, 786421, 262144, 2, 786420, 262144, 2, 786419, 262144, 2, 786418, 262144, 2, 786417, 262144, 2, 786416, 262144, 2, 786415, 262144, 2, 786414, 262144, 2, 786413, 262144, 2, 786412, 196608, 2, 720876, 196608, 1, 655340, 196608, 1, 589804, 196608, 1, 524268, 196608, 1, 458732, 196608, 1, -655380, 196608, 1, -589844, 196608, 1, -524308, 196608, 1, -458772, 196608, 1, -393236, 196608, 1, -327700, 196608, 1, -262164, 196608, 1, -196628, 196608, 1, -131092, 196608, 1, -65556, 196608, 1, -20, 196608, 1, 65516, 196608, 1, 131052, 196608, 1, 196588, 196608, 1, 262124, 196608, 1, 327660, 196608, 1, 393196, 196608, 1, 589822, 458752, 0, 589823, 458752, 0, 524288, 458752, 0, 524289, 458752, 0, 524290, 524288, 0, 655361, 458752, 2, 655360, 458752, 2, 720895, 458752, 2, 655362, 524288, 2, 655357, 393216, 1, 589821, 393216, 0, 589826, 524288, 1, 589825, 458752, 1, 589824, 458752, 1, 655359, 458752, 1, 655358, 458752, 1, 720894, 458752, 2, 720893, 393216, 2)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="Player" parent="." instance=ExtResource("2_d7amt")]
-position = Vector2(-276, 144)
-
-[node name="Death Zone" type="Area2D" parent="."]
-position = Vector2(0, -179)
-script = ExtResource("3_c3fab")
-direction = Vector2(0, 1)
-
-[node name="Sprite" type="Sprite2D" parent="Death Zone"]
-texture = SubResource("PlaceholderTexture2D_co5rf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zone"]
-shape = SubResource("RectangleShape2D_46qhj")
-
-[node name="Door" parent="." instance=ExtResource("4_pxbon")]
-position = Vector2(280, 159)
-next_level = "res://Scenes/Level2.tscn"
-
-[connection signal="moved" from="Player" to="Death Zone" method="_on_player_moved"]
-[connection signal="body_entered" from="Death Zone" to="Death Zone" method="_on_body_entered"]
