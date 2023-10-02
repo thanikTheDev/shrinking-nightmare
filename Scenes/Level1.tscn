@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://xn8wofqoe410"]
+[gd_scene load_steps=8 format=3 uid="uid://xn8wofqoe410"]
 
 [ext_resource type="Texture2D" uid="uid://furi3rtatutr" path="res://Sprites/Walls.png" id="1_3tkrt"]
 [ext_resource type="PackedScene" uid="uid://bmbvdjsjnpi6d" path="res://Prefabs/Player.tscn" id="2_d7amt"]
-[ext_resource type="Script" path="res://Scripts/DeathZone.gd" id="3_c3fab"]
 [ext_resource type="PackedScene" uid="uid://bp5n8at565fac" path="res://Prefabs/Door.tscn" id="4_pxbon"]
+[ext_resource type="PackedScene" uid="uid://di2f81hr75u5f" path="res://Prefabs/DeathZone.tscn" id="4_sdlpk"]
+[ext_resource type="PackedScene" uid="uid://vi42b4nbflta" path="res://Prefabs/Chaser.tscn" id="5_838g2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s4soq"]
 texture = ExtResource("1_3tkrt")
@@ -158,12 +159,6 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_s4soq")
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_co5rf"]
-size = Vector2(640, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_46qhj"]
-size = Vector2(640, 16)
-
 [node name="Main" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -176,20 +171,17 @@ layer_0/tile_data = PackedInt32Array(-720916, 196608, 0, -720915, 262144, 0, -72
 [node name="Player" parent="." instance=ExtResource("2_d7amt")]
 position = Vector2(-470, 288)
 
-[node name="Death Zone" type="Area2D" parent="."]
-position = Vector2(0, -179)
-script = ExtResource("3_c3fab")
-direction = Vector2(0, 1)
-
-[node name="Sprite" type="Sprite2D" parent="Death Zone"]
-texture = SubResource("PlaceholderTexture2D_co5rf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zone"]
-shape = SubResource("RectangleShape2D_46qhj")
-
 [node name="Door" parent="." instance=ExtResource("4_pxbon")]
 position = Vector2(485, 289)
 next_level = "res://Scenes/Level2.tscn"
 
+[node name="Death Zone" parent="." instance=ExtResource("4_sdlpk")]
+position = Vector2(0, -352)
+direction = Vector2(0, 1.5)
+
+[node name="Chaser" parent="." instance=ExtResource("5_838g2")]
+position = Vector2(5, 58)
+
 [connection signal="moved" from="Player" to="Death Zone" method="_on_player_moved"]
+[connection signal="moved" from="Player" to="Chaser" method="_on_player_moved"]
 [connection signal="body_entered" from="Death Zone" to="Death Zone" method="_on_body_entered"]
