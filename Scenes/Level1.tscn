@@ -188,7 +188,7 @@ texture = SubResource("PlaceholderTexture2D_co5rf")
 shape = SubResource("RectangleShape2D_46qhj")
 
 [node name="Door" parent="." instance=ExtResource("4_pxbon")]
-position = Vector2(280, 159)
+position = Vector2(485, 289)
 next_level = "res://Scenes/Level2.tscn"
 
 [connection signal="moved" from="Player" to="Death Zone" method="_on_player_moved"]
