@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlott36c13c1y"]
+
+[ext_resource type="Texture2D" uid="uid://lvmcq5ianesb" path="res://Sprites/Skull.png" id="1_2g170"]
+[ext_resource type="FontFile" uid="uid://lbn5nxdl7s8g" path="res://Retro Gaming.ttf" id="1_767f6"]
+[ext_resource type="Script" path="res://Scripts/DeathCount.gd" id="3_g5pe1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aiw7p"]
+font = ExtResource("1_767f6")
+font_size = 48
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_2g170")
+
+[node name="Death Count" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "00"
+label_settings = SubResource("LabelSettings_aiw7p")
+script = ExtResource("3_g5pe1")

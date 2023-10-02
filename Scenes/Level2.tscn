@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsvrds08fnnw7"]
+[gd_scene load_steps=7 format=3 uid="uid://bsvrds08fnnw7"]
 
-[ext_resource type="TileSet" uid="uid://cqelttbax122s" path="res://SNTileset.tres" id="2_da7ir"]
+[ext_resource type="TileSet" uid="uid://diflj6wibjoug" path="res://SNTileset.tres" id="2_da7ir"]
 [ext_resource type="PackedScene" uid="uid://bmbvdjsjnpi6d" path="res://Prefabs/Player.tscn" id="2_uhyrw"]
 [ext_resource type="PackedScene" uid="uid://bp5n8at565fac" path="res://Prefabs/Door.tscn" id="3_bnmk1"]
 [ext_resource type="PackedScene" uid="uid://cvnjj7ri2fh38" path="res://Prefabs/Key.tscn" id="4_sntej"]
-[ext_resource type="PackedScene" path="res://Prefabs/DeathZone.tscn" id="5_lqdx5"]
+[ext_resource type="PackedScene" uid="uid://di2f81hr75u5f" path="res://Prefabs/DeathZone.tscn" id="5_lqdx5"]
+[ext_resource type="PackedScene" uid="uid://dlott36c13c1y" path="res://Prefabs/UI.tscn" id="6_rnpht"]
 
 [node name="Main" type="Node2D"]
 
@@ -37,6 +38,10 @@ position = Vector2(-421, -42)
 [node name="Death Zone" parent="." instance=ExtResource("5_lqdx5")]
 position = Vector2(0, -352)
 speed = 0.7
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("6_rnpht")]
 
 [connection signal="moved" from="Player" to="Death Zone" method="_on_player_moved"]
 [connection signal="body_entered" from="Death Zone" to="Death Zone" method="_on_body_entered"]

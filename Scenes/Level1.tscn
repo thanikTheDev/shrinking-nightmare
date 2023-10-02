@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://xn8wofqoe410"]
+[gd_scene load_steps=9 format=3 uid="uid://xn8wofqoe410"]
 
 [ext_resource type="Texture2D" uid="uid://furi3rtatutr" path="res://Sprites/Walls.png" id="1_3tkrt"]
 [ext_resource type="PackedScene" uid="uid://bmbvdjsjnpi6d" path="res://Prefabs/Player.tscn" id="2_d7amt"]
 [ext_resource type="PackedScene" uid="uid://bp5n8at565fac" path="res://Prefabs/Door.tscn" id="4_pxbon"]
-[ext_resource type="PackedScene" path="res://Prefabs/DeathZone.tscn" id="4_sdlpk"]
+[ext_resource type="PackedScene" uid="uid://di2f81hr75u5f" path="res://Prefabs/DeathZone.tscn" id="4_sdlpk"]
+[ext_resource type="PackedScene" uid="uid://dlott36c13c1y" path="res://Prefabs/UI.tscn" id="5_cdryq"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_d7qtn"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 2, 1, 131072, 0, 65537, 131072, 2)
@@ -162,7 +163,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_s4soq")
 pattern_0 = SubResource("TileMapPattern_d7qtn")
 
-[node name="Main2" type="Node2D"]
+[node name="Main" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_yjmuw")
@@ -189,6 +190,10 @@ next_level = "res://Scenes/Level2.tscn"
 [node name="Death Zone" parent="." instance=ExtResource("4_sdlpk")]
 position = Vector2(0, -352)
 direction = Vector2(0, 1.5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("5_cdryq")]
 
 [connection signal="moved" from="Player" to="Death Zone" method="_on_player_moved"]
 [connection signal="body_entered" from="Death Zone" to="Death Zone" method="_on_body_entered"]

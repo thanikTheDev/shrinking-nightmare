@@ -21,11 +21,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
 	set_physics_process(false)
 
-func _process(_delta):
+func _physics_process(delta):
 	if Input.is_action_just_pressed("restart"):
 		kill()
-
-func _physics_process(delta):
+	
 	var previous_position : Vector2 = global_position
 	current_speed = SPEED
 	
@@ -98,4 +97,5 @@ func _game_over():
 
 func kill():
 	animation_tree.active = false
+	get_node("/root/GameData").player_died()
 	animation_player.play("death")
