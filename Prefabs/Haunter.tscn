@@ -1,25 +1,62 @@
-[gd_scene load_steps=5 format=3 uid="uid://do5trccxh5qo8"]
+[gd_scene load_steps=7 format=3 uid="uid://do5trccxh5qo8"]
 
 [ext_resource type="Script" path="res://Scripts/Haunter.gd" id="1_inqjf"]
+[ext_resource type="Texture2D" uid="uid://bjma5mavbs5tu" path="res://Sprites/Haunter.png" id="2_hkfy1"]
 
-[sub_resource type="Gradient" id="Gradient_na1qh"]
-offsets = PackedFloat32Array(0.980645)
-colors = PackedColorArray(0, 0.384314, 1, 1)
+[sub_resource type="CircleShape2D" id="CircleShape2D_qggqg"]
+radius = 24.0
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_xhlte"]
-gradient = SubResource("Gradient_na1qh")
-width = 16
-height = 32
+[sub_resource type="Animation" id="Animation_a2sdc"]
+resource_name = "haunt"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ruqmi"]
-radius = 8.0
-height = 31.0
+[sub_resource type="Animation" id="Animation_33dm0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vfv54"]
+_data = {
+"RESET": SubResource("Animation_33dm0"),
+"haunt": SubResource("Animation_a2sdc")
+}
 
 [node name="Haunter" type="Area2D"]
 script = ExtResource("1_inqjf")
+speed = null
+direction = null
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_xhlte")
+scale = Vector2(2, 2)
+texture = ExtResource("2_hkfy1")
+vframes = 2
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_ruqmi")
+shape = SubResource("CircleShape2D_qggqg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vfv54")
+}

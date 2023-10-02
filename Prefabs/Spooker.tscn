@@ -1,24 +1,60 @@
-[gd_scene load_steps=5 format=3 uid="uid://si4gc6juxl4u"]
+[gd_scene load_steps=7 format=3 uid="uid://si4gc6juxl4u"]
 
 [ext_resource type="Script" path="res://Scripts/Spooker.gd" id="1_x7qlx"]
-
-[sub_resource type="Gradient" id="Gradient_uwl2y"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(1, 0.627451, 0.305882, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_7ison"]
-gradient = SubResource("Gradient_uwl2y")
-width = 16
-height = 16
+[ext_resource type="Texture2D" uid="uid://coll5vhdu4imq" path="res://Sprites/Spooker.png" id="2_grram"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ig12a"]
-radius = 8.0
+radius = 32.0
+
+[sub_resource type="Animation" id="Animation_0j0va"]
+resource_name = "spook"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_uujsw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_00vdq"]
+_data = {
+"RESET": SubResource("Animation_uujsw"),
+"spook": SubResource("Animation_0j0va")
+}
 
 [node name="Spooker" type="Area2D"]
 script = ExtResource("1_x7qlx")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_7ison")
+scale = Vector2(2, 2)
+texture = ExtResource("2_grram")
+vframes = 2
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ig12a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_00vdq")
+}

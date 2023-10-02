@@ -1,24 +1,61 @@
-[gd_scene load_steps=5 format=3 uid="uid://vi42b4nbflta"]
+[gd_scene load_steps=7 format=3 uid="uid://vi42b4nbflta"]
 
 [ext_resource type="Script" path="res://Scripts/Chaser.gd" id="1_kjdr8"]
-
-[sub_resource type="Gradient" id="Gradient_6rct3"]
-offsets = PackedFloat32Array(0.993548)
-colors = PackedColorArray(0.176471, 1, 0.698039, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_dqvgg"]
-gradient = SubResource("Gradient_6rct3")
-width = 16
-height = 16
+[ext_resource type="Texture2D" uid="uid://b5uiokylpv7fs" path="res://Sprites/Chaser.png" id="2_08tgo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j66ec"]
-radius = 8.0
+radius = 32.0
+
+[sub_resource type="Animation" id="Animation_ap84j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_no23j"]
+resource_name = "chase"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qmi2g"]
+_data = {
+"RESET": SubResource("Animation_ap84j"),
+"chase": SubResource("Animation_no23j")
+}
 
 [node name="Chaser" type="Area2D"]
 script = ExtResource("1_kjdr8")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_dqvgg")
+scale = Vector2(2, 2)
+texture = ExtResource("2_08tgo")
+hframes = 2
+vframes = 2
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_j66ec")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qmi2g")
+}
