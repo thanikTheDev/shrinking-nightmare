@@ -1,7 +1,7 @@
 [gd_scene load_steps=54 format=3 uid="uid://bmbvdjsjnpi6d"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_o4bp7"]
-[ext_resource type="Texture2D" uid="uid://b7anped7kintn" path="res://Sprites/Player.png" id="2_3nppt"]
+[ext_resource type="Texture2D" uid="uid://cobjl0wmr4sy8" path="res://Sprites/Player.png" id="2_3nppt"]
 [ext_resource type="AudioStream" uid="uid://c46wnhppl617y" path="res://Sounds/Effects/walk.wav" id="3_7cf0i"]
 [ext_resource type="AudioStream" uid="uid://glpxy514onig" path="res://Sounds/Effects/crouch.wav" id="4_jytuf"]
 [ext_resource type="AudioStream" uid="uid://dj36323demk0t" path="res://Sounds/Effects/crouch_walk.wav" id="5_7j3rk"]
