@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 signal moved()
 
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -600.0
 const LOW_JUMP_MULTIPLIER = 3
 const FALL_MULTIPLIER = 1.2
 const SPEED = 150.0
@@ -72,10 +72,12 @@ func _update_grounded_logic():
 		collider.position.y = 0 
 
 func _update_animation_parameters():
-	animation_tree["parameters/conditions/crouching"] = crouched
-	animation_tree["parameters/conditions/standing"] = not crouched
 	animation_tree["parameters/conditions/idling"] = velocity == Vector2.ZERO
 	animation_tree["parameters/conditions/walking"] = velocity.x != 0 and velocity.y == 0
+	animation_tree["parameters/conditions/crouching"] = crouched
+	animation_tree["parameters/conditions/standing"] = not crouched
+	animation_tree["parameters/conditions/jumping"] = not is_on_floor() and velocity.y < 0
+	animation_tree["parameters/conditions/falling"] = not is_on_floor() and velocity.y > 0
 	
 	if direction:
 		sprite.set("flip_h", direction < 0)
