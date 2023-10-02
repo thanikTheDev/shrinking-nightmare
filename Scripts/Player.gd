@@ -40,6 +40,7 @@ func _physics_process(delta):
 	_update_animation_parameters()
 	
 	if previous_position != global_position:
+		print(global_position)
 		emit_signal("moved")
 
 func _update_vertical_velocity(delta):
@@ -98,7 +99,3 @@ func _game_over():
 func kill():
 	animation_tree.active = false
 	animation_player.play("death")
-
-
-func _on_moved():
-	pass # Replace with function body.

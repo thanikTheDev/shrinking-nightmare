@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://di2f81hr75u5f" path="res://Prefabs/DeathZone.tscn" id="6_1mhjg"]
 [ext_resource type="PackedScene" uid="uid://vi42b4nbflta" path="res://Prefabs/Chaser.tscn" id="6_u24al"]
 
-[node name="Main2" type="Node2D"]
+[node name="Main" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_0awae")

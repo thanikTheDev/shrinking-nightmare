@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://si4gc6juxl4u" path="res://Prefabs/Spooker.tscn" id="5_stpys"]
 [ext_resource type="PackedScene" uid="uid://di2f81hr75u5f" path="res://Prefabs/DeathZone.tscn" id="6_5x2gq"]
 
-[node name="Level7" type="Node2D"]
+[node name="Main" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
