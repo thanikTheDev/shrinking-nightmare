@@ -39,7 +39,6 @@ func _physics_process(delta):
 	_update_animation_parameters()
 	
 	if previous_position != global_position:
-		print(global_position)
 		emit_signal("moved")
 
 func _update_vertical_velocity(delta):

@@ -31,7 +31,6 @@ text = "RESUME"
 flat = true
 
 [node name="Go To Main Menu" type="Button" parent="CenterContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_h4xi5")
 theme_override_font_sizes/font_size = 48

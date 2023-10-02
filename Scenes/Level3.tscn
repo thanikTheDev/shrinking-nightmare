@@ -1,14 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://b08ywerf6dcdf"]
+[gd_scene load_steps=10 format=3 uid="uid://b08ywerf6dcdf"]
 
-[ext_resource type="TileSet" uid="uid://cqelttbax122s" path="res://SNTileset.tres" id="1_uw8e8"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_3x34m"]
+[ext_resource type="TileSet" uid="uid://diflj6wibjoug" path="res://SNTileset.tres" id="1_uw8e8"]
 [ext_resource type="PackedScene" uid="uid://bmbvdjsjnpi6d" path="res://Prefabs/Player.tscn" id="2_7wqtr"]
 [ext_resource type="PackedScene" uid="uid://bp5n8at565fac" path="res://Prefabs/Door.tscn" id="3_iiesw"]
 [ext_resource type="PackedScene" uid="uid://cvnjj7ri2fh38" path="res://Prefabs/Key.tscn" id="4_qxqyr"]
-[ext_resource type="PackedScene" path="res://Prefabs/DeathZone.tscn" id="5_nlqnb"]
+[ext_resource type="PackedScene" uid="uid://di2f81hr75u5f" path="res://Prefabs/DeathZone.tscn" id="5_nlqnb"]
 [ext_resource type="PackedScene" uid="uid://do5trccxh5qo8" path="res://Prefabs/Haunter.tscn" id="6_11mov"]
-[ext_resource type="PackedScene" path="res://Prefabs/UI.tscn" id="7_jri0a"]
+[ext_resource type="PackedScene" uid="uid://dlott36c13c1y" path="res://Prefabs/UI.tscn" id="7_jri0a"]
+[ext_resource type="PackedScene" uid="uid://bmwrbob5cktxt" path="res://Prefabs/PauseMenu.tscn" id="9_n1bhj"]
 
-[node name="Main2" type="Node2D"]
+[node name="Main" type="Node2D"]
+script = ExtResource("1_3x34m")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_uw8e8")
@@ -48,6 +51,9 @@ direction = Vector2(-1, 0)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("7_jri0a")]
+
+[node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("9_n1bhj")]
+visible = false
 
 [connection signal="moved" from="Player" to="Death Zone" method="_on_player_moved"]
 [connection signal="moved" from="Player" to="Haunter" method="_on_player_moved"]
