@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjma5mavbs5tu"
-path="res://.godot/imported/ZombieGhost.png-8543d7db211034205974c0d176680873.ctex"
+path="res://.godot/imported/Haunter.png-ddcb0769595ab6b043ddf23a3d95e403.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/ZombieGhost.png"
-dest_files=["res://.godot/imported/ZombieGhost.png-8543d7db211034205974c0d176680873.ctex"]
+source_file="res://Sprites/Haunter.png"
+dest_files=["res://.godot/imported/Haunter.png-ddcb0769595ab6b043ddf23a3d95e403.ctex"]
 
 [params]
 
