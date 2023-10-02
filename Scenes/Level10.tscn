@@ -1,14 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://clqv72d5f3s4v"]
+[gd_scene load_steps=10 format=3 uid="uid://clqv72d5f3s4v"]
 
-[ext_resource type="TileSet" uid="uid://cqelttbax122s" path="res://SNTileset.tres" id="1_iial4"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_58mpm"]
+[ext_resource type="TileSet" uid="uid://diflj6wibjoug" path="res://SNTileset.tres" id="1_iial4"]
 [ext_resource type="PackedScene" uid="uid://bp5n8at565fac" path="res://Prefabs/Door.tscn" id="2_1m3rv"]
 [ext_resource type="PackedScene" uid="uid://cvnjj7ri2fh38" path="res://Prefabs/Key.tscn" id="3_h2j6f"]
 [ext_resource type="PackedScene" uid="uid://bmbvdjsjnpi6d" path="res://Prefabs/Player.tscn" id="4_6527x"]
 [ext_resource type="PackedScene" uid="uid://vi42b4nbflta" path="res://Prefabs/Chaser.tscn" id="5_qoi3q"]
-[ext_resource type="PackedScene" path="res://Prefabs/DeathZone.tscn" id="6_2w6tl"]
-[ext_resource type="PackedScene" path="res://Prefabs/UI.tscn" id="7_tu4gt"]
+[ext_resource type="PackedScene" uid="uid://di2f81hr75u5f" path="res://Prefabs/DeathZone.tscn" id="6_2w6tl"]
+[ext_resource type="PackedScene" uid="uid://dlott36c13c1y" path="res://Prefabs/UI.tscn" id="7_tu4gt"]
+[ext_resource type="PackedScene" uid="uid://bmwrbob5cktxt" path="res://Prefabs/PauseMenu.tscn" id="8_0x6cu"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_58mpm")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -27,7 +30,7 @@ layer_1/tile_data = PackedInt32Array(655379, 327680, 1, 720876, 196608, 1, -6553
 
 [node name="Door" parent="." node_paths=PackedStringArray("key") instance=ExtResource("2_1m3rv")]
 position = Vector2(576, 286)
-next_level = "res://Scenes/Level11.tscn"
+next_level = "res://Scenes/Win.tscn"
 key = NodePath("../Key")
 
 [node name="Key" parent="." instance=ExtResource("3_h2j6f")]
@@ -38,11 +41,11 @@ position = Vector2(-1, 288)
 
 [node name="Chaser" parent="." instance=ExtResource("5_qoi3q")]
 position = Vector2(374, -202)
-speed = 1.6
+speed = 1.7
 
 [node name="Chaser2" parent="." instance=ExtResource("5_qoi3q")]
 position = Vector2(210, -204)
-speed = 1.6
+speed = 1.7
 
 [node name="Death Zone" parent="." instance=ExtResource("6_2w6tl")]
 position = Vector2(0, -352)
@@ -51,6 +54,9 @@ speed = 0.4
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("7_tu4gt")]
+
+[node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("8_0x6cu")]
+visible = false
 
 [connection signal="moved" from="Player" to="Chaser" method="_on_player_moved"]
 [connection signal="moved" from="Player" to="Chaser2" method="_on_player_moved"]

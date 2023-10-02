@@ -1,25 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://dahgwxwt3i661"]
+[gd_scene load_steps=7 format=3 uid="uid://dvbuiiiynomca"]
 
-[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_2o4c0"]
-[ext_resource type="FontFile" uid="uid://lbn5nxdl7s8g" path="res://Retro Gaming.ttf" id="2_leili"]
+[ext_resource type="Script" path="res://Scripts/Win.gd" id="1_pdvlc"]
+[ext_resource type="FontFile" uid="uid://lbn5nxdl7s8g" path="res://Retro Gaming.ttf" id="2_0cq3y"]
 
-[sub_resource type="Gradient" id="Gradient_cfonr"]
+[sub_resource type="Gradient" id="Gradient_a41rp"]
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(1, 1, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_81eaw"]
-gradient = SubResource("Gradient_cfonr")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_chpkv"]
+gradient = SubResource("Gradient_a41rp")
 height = 10
 
-[sub_resource type="LabelSettings" id="LabelSettings_ymunc"]
-font = ExtResource("2_leili")
+[sub_resource type="LabelSettings" id="LabelSettings_oyqt0"]
+font = ExtResource("2_0cq3y")
 font_size = 96
 
-[sub_resource type="LabelSettings" id="LabelSettings_hwbaf"]
-font = ExtResource("2_leili")
+[sub_resource type="LabelSettings" id="LabelSettings_4clv8"]
+font = ExtResource("2_0cq3y")
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_2o4c0")
+script = ExtResource("1_pdvlc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -44,37 +44,32 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/CenterContainer/VBoxContainer"]
 layout_mode = 2
-texture = SubResource("GradientTexture2D_81eaw")
+texture = SubResource("GradientTexture2D_chpkv")
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "SHRINKING
 NIGHTMARE"
-label_settings = SubResource("LabelSettings_ymunc")
+label_settings = SubResource("LabelSettings_oyqt0")
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/CenterContainer/VBoxContainer"]
 layout_mode = 2
-texture = SubResource("GradientTexture2D_81eaw")
+texture = SubResource("GradientTexture2D_chpkv")
 
-[node name="Controls" type="Label" parent="CanvasLayer/Control/CenterContainer/VBoxContainer"]
+[node name="DeathCount" type="Label" parent="CanvasLayer/Control/CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "A and D for Left and Right
-S to Crouch
-Space to Jump
-K to Restart
-P to Pause"
-label_settings = SubResource("LabelSettings_hwbaf")
+label_settings = SubResource("LabelSettings_4clv8")
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 100
 
-[node name="Play" type="Button" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/MarginContainer"]
+[node name="To Main Menu" type="Button" parent="CanvasLayer/Control/CenterContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_leili")
+theme_override_fonts/font = ExtResource("2_0cq3y")
 theme_override_font_sizes/font_size = 48
-text = "Play"
+text = "TO MAIN MENU"
 flat = true
 
-[connection signal="pressed" from="CanvasLayer/Control/CenterContainer/VBoxContainer/MarginContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/CenterContainer/VBoxContainer/MarginContainer/To Main Menu" to="." method="_on_to_main_menu_pressed"]

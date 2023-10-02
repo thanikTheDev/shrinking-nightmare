@@ -1,14 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7egqciv2fg6e"]
+[gd_scene load_steps=10 format=3 uid="uid://b7egqciv2fg6e"]
 
-[ext_resource type="TileSet" uid="uid://cqelttbax122s" path="res://SNTileset.tres" id="1_limd7"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_gv2gp"]
+[ext_resource type="TileSet" uid="uid://diflj6wibjoug" path="res://SNTileset.tres" id="1_limd7"]
 [ext_resource type="PackedScene" uid="uid://bp5n8at565fac" path="res://Prefabs/Door.tscn" id="2_k7m3d"]
 [ext_resource type="PackedScene" uid="uid://cvnjj7ri2fh38" path="res://Prefabs/Key.tscn" id="3_sftal"]
 [ext_resource type="PackedScene" uid="uid://si4gc6juxl4u" path="res://Prefabs/Spooker.tscn" id="4_a2yak"]
 [ext_resource type="PackedScene" uid="uid://bmbvdjsjnpi6d" path="res://Prefabs/Player.tscn" id="6_0df2s"]
-[ext_resource type="PackedScene" path="res://Prefabs/DeathZone.tscn" id="6_5m2uy"]
-[ext_resource type="PackedScene" path="res://Prefabs/UI.tscn" id="7_pssx8"]
+[ext_resource type="PackedScene" uid="uid://di2f81hr75u5f" path="res://Prefabs/DeathZone.tscn" id="6_5m2uy"]
+[ext_resource type="PackedScene" uid="uid://dlott36c13c1y" path="res://Prefabs/UI.tscn" id="7_pssx8"]
+[ext_resource type="PackedScene" uid="uid://bmwrbob5cktxt" path="res://Prefabs/PauseMenu.tscn" id="9_avm76"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_gv2gp")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_limd7")
@@ -53,6 +56,9 @@ speed = 0.9
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("7_pssx8")]
+
+[node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("9_avm76")]
+visible = false
 
 [connection signal="body_entered" from="Spooker" to="Spooker" method="_on_body_entered"]
 [connection signal="body_entered" from="Spooker2" to="Spooker2" method="_on_body_entered"]
