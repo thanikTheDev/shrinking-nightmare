@@ -1,41 +1,14 @@
-[gd_scene load_steps=21 format=3 uid="uid://bmbvdjsjnpi6d"]
+[gd_scene load_steps=36 format=3 uid="uid://bmbvdjsjnpi6d"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_o4bp7"]
 [ext_resource type="Texture2D" uid="uid://b7anped7kintn" path="res://Sprites/Player.png" id="2_3nppt"]
 [ext_resource type="AudioStream" uid="uid://c46wnhppl617y" path="res://Sounds/Effects/walk.wav" id="3_7cf0i"]
+[ext_resource type="AudioStream" uid="uid://glpxy514onig" path="res://Sounds/Effects/crouch.wav" id="4_jytuf"]
+[ext_resource type="AudioStream" uid="uid://dj36323demk0t" path="res://Sounds/Effects/crouch_walk.wav" id="5_7j3rk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k114r"]
-radius = 22.0
-height = 64.0
-
-[sub_resource type="Animation" id="Animation_rt0i1"]
-resource_name = "idle_left"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7, 0.8, 1.3, 1.4, 1.5, 1.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [1, 0, 1, 0, 1, 0, 1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
+radius = 37.0
+height = 127.0
 
 [sub_resource type="Animation" id="Animation_sx58w"]
 length = 0.001
@@ -64,8 +37,39 @@ tracks/1/keys = {
 "values": [1]
 }
 
-[sub_resource type="Animation" id="Animation_4lohu"]
-resource_name = "idle_right"
+[sub_resource type="Animation" id="Animation_j2gjg"]
+resource_name = "crouch_start_left"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 8, 9, 10]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_jytuf")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_rt0i1"]
+resource_name = "idle_left"
 length = 2.0
 loop_mode = 1
 tracks/0/type = "value"
@@ -79,18 +83,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [1, 0, 1, 0, 1, 0, 1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_5hy54"]
@@ -109,25 +101,13 @@ tracks/0/keys = {
 "update": 1,
 "values": [1, 2, 1, 3]
 }
-tracks/1/type = "value"
+tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/path = NodePath("AudioStreamPlayer2D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "audio"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AudioStreamPlayer2D")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "clips": [{
 "end_offset": 3.14,
 "start_offset": 0.0,
@@ -135,10 +115,27 @@ tracks/2/keys = {
 }],
 "times": PackedFloat32Array(0)
 }
-tracks/2/use_blend = true
+tracks/1/use_blend = true
 
-[sub_resource type="Animation" id="Animation_6so73"]
-resource_name = "walk_right"
+[sub_resource type="Animation" id="Animation_o7t40"]
+resource_name = "crouch"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+
+[sub_resource type="Animation" id="Animation_onwml"]
+resource_name = "crouch_walk"
 length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
@@ -151,92 +148,158 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [1, 2, 1, 3]
+"values": [10, 11, 10, 12]
 }
-tracks/1/type = "value"
+tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/path = NodePath("AudioStreamPlayer2D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "audio"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AudioStreamPlayer2D")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "clips": [{
-"end_offset": 3.14,
+"end_offset": 3.12,
 "start_offset": 0.0,
-"stream": ExtResource("3_7cf0i")
+"stream": ExtResource("5_7j3rk")
 }],
 "times": PackedFloat32Array(0)
 }
-tracks/2/use_blend = true
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_engkx"]
+resource_name = "jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_6of26"]
+resource_name = "crouch_end"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [10, 9, 8, 1]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nfcs4"]
 _data = {
 "RESET": SubResource("Animation_sx58w"),
-"idle_left": SubResource("Animation_rt0i1"),
-"idle_right": SubResource("Animation_4lohu"),
-"walk_left": SubResource("Animation_5hy54"),
-"walk_right": SubResource("Animation_6so73")
+"crouch": SubResource("Animation_o7t40"),
+"crouch_end": SubResource("Animation_6of26"),
+"crouch_start": SubResource("Animation_j2gjg"),
+"crouch_walk": SubResource("Animation_onwml"),
+"idle": SubResource("Animation_rt0i1"),
+"jump": SubResource("Animation_engkx"),
+"walk": SubResource("Animation_5hy54")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1ffyc"]
-animation = &"idle_right"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y0neh"]
+animation = &"crouch"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_022r7"]
-animation = &"idle_left"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nnga2"]
+animation = &"crouch_end"
 
-[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_5tjjx"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_1ffyc")
-blend_point_0/pos = 1.0
-blend_point_1/node = SubResource("AnimationNodeAnimation_022r7")
-blend_point_1/pos = -1.0
-value_label = "x"
-blend_mode = 1
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kdq03"]
+animation = &"crouch_start"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q08tn"]
-animation = &"walk_right"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3aoi3"]
+animation = &"crouch_walk"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ctgxi"]
-animation = &"walk_left"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bkuma"]
+animation = &"idle"
 
-[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_81qng"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_q08tn")
-blend_point_0/pos = 1.0
-blend_point_1/node = SubResource("AnimationNodeAnimation_ctgxi")
-blend_point_1/pos = -1.0
-blend_mode = 1
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d7jbl"]
+animation = &"walk"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2mu4t"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h4rlc"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7p1o4"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cmqaa"]
 advance_mode = 2
 advance_condition = &"walking"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_33su7"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3na4c"]
 advance_mode = 2
 advance_condition = &"idling"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gxg3y"]
+advance_mode = 2
+advance_condition = &"crouching"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o58qp"]
+advance_mode = 2
+advance_condition = &"crouching"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5bpk8"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oxq0f"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_du8ll"]
+advance_mode = 2
+advance_condition = &"walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_42uvc"]
+advance_mode = 2
+advance_condition = &"idling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4li10"]
+advance_mode = 2
+advance_condition = &"standing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jomtj"]
+advance_mode = 2
+advance_condition = &"standing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5rv17"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iuiyv"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"walking"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_duypr"]
-states/Idle/node = SubResource("AnimationNodeBlendSpace1D_5tjjx")
-states/Idle/position = Vector2(344, 100)
-states/Walk/node = SubResource("AnimationNodeBlendSpace1D_81qng")
-states/Walk/position = Vector2(519, 100)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_2mu4t"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_7p1o4"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_33su7")]
+states/Crouch/node = SubResource("AnimationNodeAnimation_y0neh")
+states/Crouch/position = Vector2(321, 248)
+states/Crouch_End/node = SubResource("AnimationNodeAnimation_nnga2")
+states/Crouch_End/position = Vector2(432, 331)
+states/Crouch_Start/node = SubResource("AnimationNodeAnimation_kdq03")
+states/Crouch_Start/position = Vector2(427, 170)
+states/Crouch_Walk/node = SubResource("AnimationNodeAnimation_3aoi3")
+states/Crouch_Walk/position = Vector2(534, 248)
+states/Idle/node = SubResource("AnimationNodeAnimation_bkuma")
+states/Idle/position = Vector2(357, 100)
+states/Walk/node = SubResource("AnimationNodeAnimation_d7jbl")
+states/Walk/position = Vector2(505, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_h4rlc"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_cmqaa"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_3na4c"), "Idle", "Crouch_Start", SubResource("AnimationNodeStateMachineTransition_gxg3y"), "Walk", "Crouch_Start", SubResource("AnimationNodeStateMachineTransition_o58qp"), "Crouch_Start", "Crouch", SubResource("AnimationNodeStateMachineTransition_5bpk8"), "Crouch_Start", "Crouch_Walk", SubResource("AnimationNodeStateMachineTransition_oxq0f"), "Crouch", "Crouch_Walk", SubResource("AnimationNodeStateMachineTransition_du8ll"), "Crouch_Walk", "Crouch", SubResource("AnimationNodeStateMachineTransition_42uvc"), "Crouch", "Crouch_End", SubResource("AnimationNodeStateMachineTransition_4li10"), "Crouch_Walk", "Crouch_End", SubResource("AnimationNodeStateMachineTransition_jomtj"), "Crouch_End", "Idle", SubResource("AnimationNodeStateMachineTransition_5rv17"), "Crouch_End", "Walk", SubResource("AnimationNodeStateMachineTransition_iuiyv")]
+graph_offset = Vector2(-154, 80)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-position = Vector2(0, -32)
+position = Vector2(0, -64)
 script = ExtResource("1_o4bp7")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -246,6 +309,7 @@ vframes = 5
 frame = 1
 
 [node name="Collider" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_k114r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -257,9 +321,9 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_duypr")
 anim_player = NodePath("../AnimationPlayer")
 active = true
+parameters/conditions/crouching = false
 parameters/conditions/idling = false
+parameters/conditions/standing = false
 parameters/conditions/walking = false
-parameters/Idle/blend_position = 0.0
-parameters/Walk/blend_position = 0.003003
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

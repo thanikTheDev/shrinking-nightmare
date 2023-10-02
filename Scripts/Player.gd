@@ -7,10 +7,11 @@ const LOW_JUMP_MULTIPLIER = 3
 const FALL_MULTIPLIER = 1.2
 const SPEED = 150.0
 
-@onready var collider : CollisionShape2D = $Collider
 @onready var animation_tree : AnimationTree = $AnimationTree
+@onready var collider : CollisionShape2D = $Collider
+@onready var sprite : Sprite2D = $Sprite
 
-var collider_height: int = 63
+var collider_height: int = 127
 var crouched : bool = false
 var current_speed : float
 var direction : float
@@ -71,12 +72,13 @@ func _update_grounded_logic():
 		collider.position.y = 0 
 
 func _update_animation_parameters():
+	animation_tree["parameters/conditions/crouching"] = crouched
+	animation_tree["parameters/conditions/standing"] = not crouched
 	animation_tree["parameters/conditions/idling"] = velocity == Vector2.ZERO
 	animation_tree["parameters/conditions/walking"] = velocity.x != 0 and velocity.y == 0
 	
 	if direction:
-		animation_tree["parameters/Idle/blend_position"] = direction
-		animation_tree["parameters/Walk/blend_position"] = direction
+		sprite.set("flip_h", direction < 0)
 
 func _is_under_object():
 	var space_state = get_world_2d().direct_space_state
