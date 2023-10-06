@@ -4,12 +4,12 @@ A 2D Platformer made for Ludum Dare 54 (October 2023) in 72 hours [Game Jam Link
 
 # Credits
 
-Team Lead & Lead Programmer - Thanik Kanagaratnam
-Asset Designer & Level Designer - Aaron Droese
-Level Designer & Programmer - Carl Villalobos
+Team Lead & Lead Programmer - Thanik Kanagaratnam</br>
+Asset Designer & Level Designer - Aaron Droese</br>
+Level Designer & Programmer - Carl Villalobos</br>
 
 # Tools Used
 
-Game Engine - Godot
-Sprites - Piskel
-Sound Effects - Beepbox
+Game Engine - Godot</br>
+Sprites - Piskel</br>
+Sound Effects - Beepbox</br>
